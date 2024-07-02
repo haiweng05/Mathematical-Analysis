@@ -1,0 +1,462 @@
+\documentclass[11pt,hyperref,a4paper,UTF8]{ctexart}
+\usepackage[left=2.50cm, right=2.50cm, top=2.50cm, bottom=2.50cm]{geometry}
+\usepackage[unicode=true,colorlinks,urlcolor=blue,linkcolor=blue,bookmarksnumbered=true]{hyperref}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{ctex}
+
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+% 导入 xparse 宏包以支持 LaTeX3 语法
+\usepackage{xparse}
+\usepackage{pgfplots}
+% 用于插入带有坐标轴、标签和曲线的图像
+
+% \begin{tikzpicture}
+%     \begin{axis}[
+%       xlabel=$x$,
+%       ylabel=$f(x)$,
+%       axis lines=middle,
+%       xmin=-5, xmax=5,
+%       ymin=-2, ymax=8,
+%       width=\textwidth,
+%       height=8cm
+%     ]
+%     \addplot[blue,domain=-3:3] {x^2};
+%     \end{axis}
+%   \end{tikzpicture}
+\usepackage{tikz}
+% 用于绘制一般的图像
+
+% \begin{tikzpicture}[scale=0.8]
+%     \draw[->] (-4,0) -- (4,0) node[right] {$x$};
+%     \draw[->] (0,-1) -- (0,9) node[above] {$f(x)$};
+%     \draw[domain=-3:3,smooth,variable=\x,blue] plot ({\x},{\x^2});
+%   \end{tikzpicture}
+
+\newtheorem{theorem}{Theorem}[subsection]
+\newtheorem{lemma}{Lemma}[subsection]
+\newtheorem{corollary}{corollary}[subsection]
+\newtheorem{example}{Example}[subsection]
+\newtheorem{definition}{Definition}[subsection]
+% 为了证明中可以使用中文，后续定义证明时使用cproof而不是proof
+\newenvironment{cproof}{%
+{
+    \textbf{Proof\\}
+    }
+}{
+%   \hfill $\square$ 添加结束符号
+%   \par\bigskip 可选的垂直间距
+}
+\newenvironment{exercise}[1]{%
+{\textbf{Exercise #1} \\ 
+    }
+}{
+  \hfill $\square$ 
+  \par\bigskip 
+}
+
+\newenvironment{solution}{%
+{
+    \textbf{Solution\\}
+    }
+}{
+  \hfill $\square$ 
+  \par\bigskip 
+}
+
+
+% \newenvironment{identification}{%
+% \heiti{定义}\kaishu
+% }{%
+% %   \hfill $\square$ 添加结束符号
+% %   \par\bigskip 可选的垂直间距
+% }
+
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\PP}{\mathbb{P}}
+% 简化各种常见数的集合
+
+\newcommand{\parameter}[1]{\left(#1\right)}
+
+\newcommand{\bracket}[1]{\left[#1\right]}
+
+\newcommand{\abs}[1]{\left|#1\right|}
+% 各种自动变化大小的括号的简化
+
+\newcommand{\ve}{\boldsymbol}
+% 为了适应David C Lay线性代数中，简化斜体+粗体向量的书写
+
+\newcommand{\base}{\mathcal}
+
+\newcommand{\tb}{\textbf}
+
+\newcommand{\col}{\text{Col}}
+
+\newcommand{\row}{\text{Row}}
+\newcommand{\nul}{\text{Nul}}
+\newcommand{\spans}{\text{Span}}
+\newcommand{\proj}{\text{proj}}
+\newcommand{\adj}{\text{adj.}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\range}{\text{range}}
+\newcommand{\n}{\text{null}}
+\newcommand{\tr}{\text{tr}}
+\newcommand{\sign}{\text{sign}}
+\newcommand{\perm}{\text{perm}}
+% 简化粗体字体的书写
+
+\newcommand{\f}[2]{\frac}
+\newcommand{\df}[2]{\dfrac}
+
+\newcommand{\ip}[1]{\left<#1\right>}
+
+\newcommand{\pa}{\paragraph}
+\newcommand{\spa}{\subparagraph}
+\newcommand{\se}{\section}
+\newcommand{\sse}{\subsection}
+\newcommand{\ssse}{\subsubsection}
+
+% \NewDocumentCommand{\vs}{m m m}{
+%     \ve{#1}_{#2},\cdots,\ve{#1}_{#3}
+% }
+% % 快速书写一个向量组，第一个参数为向量名称，后两个为首末角标
+
+% % $\vs{b}{1}{n} $这是多参数命令的使用示例
+
+% \NewDocumentCommand{\cvs}{m m m m m}{
+%     #1_{#4}\ve{#2}_{#4} #3 \cdots #3 #1_{#5}\ve{#2}_{#5}
+% }
+% % 快速书写一个向量线性组合，第一个参数为系数，第二个参数为向量名称，第三个参数为运算符，后两个参数为角标
+
+\NewDocumentCommand{\size}{m m}{
+    #1\times#2
+}
+
+
+\title{习题七}
+\author{徐海翁}
+\date{2024.3.27}
+
+\begin{document}
+
+\begin{CJK}{UTF8}{gkai}
+
+\maketitle
+% \tableofcontents
+
+\begin{exercise}{21}
+    题目有误,将$\xi,\eta$表达式中的$u$改成$y$.
+
+    于是我们由链式法则可得
+    \[\frac{\partial u}{\partial x} = \frac{\partial u}{\partial \xi} \frac{\partial \xi}{\partial x} + \frac{\partial u}{\partial \eta} \frac{\partial \eta}{\partial x} = u_\xi + u_\eta\]
+
+    同理
+    \[\frac{\partial u}{\partial y} = \lambda \frac{\partial u}{\partial \xi} + \mu \frac{\partial u}{\partial \eta}\]
+
+    进而可以求得各二阶偏导
+    \[u_{xx} = u_{\xi\xi} + u_{\eta\eta} + u_{\eta\xi} + u_{\xi\eta}\]
+    \[u_{xy} = \lambda u_{\xi\xi} +\mu u_{\eta\eta} +\lambda u_{\eta\xi} +\mu u_{\xi\eta}\]
+    \[u_{yy} = \lambda^2 u_{\xi\xi} +\mu^2 u_{\eta\eta} +\lambda \mu u_{\eta\xi} +\lambda \mu u_{\xi\eta}\]
+
+    由于
+    \[u_{xx} + au_{xy} + bu_{yy} = 0\]
+
+    不妨取$\lambda = 0$,注意到此时$\mu \neq 0$,那么
+    \[u_{\xi\xi} + (1 + a\mu + b\mu^2) u_{\eta\eta} + (1 + a\mu)u_{\eta\xi} + (1 + a\mu)u_{\xi\eta}\]
+    
+    此时我们分三种情况:
+
+    $a \neq 0$时,我们取$\mu = -\frac{1}{a} \neq \lambda$,那么方程化为
+    \[u_{\xi\xi} + \frac{b}{a^2} u_{\eta\eta} = 0\]
+
+    $a = 0$且$b < 0$时,我们取$\mu = \frac{1}{\sqrt{-b}}$,那么方程化为
+    \[u_{\xi\xi} + u_{\xi\eta} + u_{\eta\xi} = 0\]
+
+    $a = 0$且$b \geq 0$时,我们取$\mu = 1$即可得到
+    \[u_{\xi\xi} + u_{\xi\eta} + u_{\eta\xi} + (1 + b) u_{\eta\eta}= 0\]
+\end{exercise}
+
+\begin{exercise}{22}
+    由于线性映射数乘的性质,可知给$x$乘上非零系数$c$不改变$\sup\frac{\|Ax\|}{\|x\|}$的结果,我们不妨限定$\|x\| = 1$,由于
+    \[\|Ax\|^2 = x^T A^T A x\]
+
+    我们的$A^T A$是自伴随算子[对称矩阵],从而其可对角化称为$PDP^{-1}$的形式,其中$D = \begin{pmatrix}
+        \lambda_1&&\\
+        &\ddots&\\
+        &&\lambda_m\\
+    \end{pmatrix}$.然后作变量代换$y = P^{-1}x$,就有
+    \[\max_{\|x\| = 1} x^T A^T A x = \max_{\|y\| = 1} y^T D y\]
+
+    显然当$y$为$e_1$时上式最大,取值为$\lambda_1$,也就是说
+    \[\sup\frac{\|Ax\|}{\|x\|} = \max_{\|x\| = 1} \|Ax\| = \sqrt{\lambda_1} = \sigma_1\]
+
+    代入我们的$A$,可以得到
+    \[A^T A = \begin{pmatrix}
+        10&8&6\\
+        8&8&8\\
+        6&8&10\\
+    \end{pmatrix}\]
+    可以求得其特征多项式为
+    \[p(\lambda) = -\lambda(16 - \lambda)(4 - \lambda)\]
+
+    故其最大特征值为$16$,从而$A$的最大奇异值为$4$,故$A$的范数为$4$
+\end{exercise}
+
+\begin{exercise}{23}
+    求梯度可得向量$\begin{pmatrix}
+        e^{x + z}\sin y\\
+        e^{x + z}\cos y\\
+        e^{x + z}\sin y\\
+    \end{pmatrix}$
+    之后利用向量值函数微分的性质,可得
+    \[Df = \begin{pmatrix}
+        e^{x + z}\sin y&e^{x + z}\cos y&e^{x + z}\sin y\\
+        e^{x + z}\cos y&-e^{x + z}\sin y&e^{x + z}\cos y\\
+        e^{x + z}\sin y&e^{x + z}\cos y&e^{x + z}\sin y\\
+    \end{pmatrix}\]
+\end{exercise}
+
+\begin{exercise}{24}
+    设三边为$a,b,c$,不妨假设限制条件为$a + b = 1$,利用角$C$余弦定理
+    \[\cos C = \frac{a^2 + b^2 - c^2}{2ab}\]
+
+    从而
+    \[S(a,b,c) = \frac{1}{2}ab\sin C = \frac{1}{2}ab \sqrt{1 - \parameter{\frac{a^2 + b^2 - c^2}{2ab}}^2}\]
+
+    我们不妨考虑$2S^2$的极值
+    \[2S^2 = a(1 - a)(1 - c^2) - \frac{1}{4}(1 - c^2)^2\]
+
+    于是我们求各偏导数
+    \[\frac{\partial 2S^2}{\partial a} = (1 - 2a)(1 - c^2) = 0\]
+    \[\frac{\partial 2S^2}{\partial c} = -2a(1 - a)c - 4c^3 + 4c = 0\]
+
+    结合实际意义
+    \[\begin{cases}
+        0 < a < 1\\
+        c > 0\\
+    \end{cases}\]
+
+    可解出
+    \[\begin{cases}
+        a = \frac{1}{2}\\
+        b = \frac{1}{2}\\
+        c = \frac{\sqrt{14}}{4}\\
+    \end{cases}\]
+
+    解出
+    \[S = \frac{\sqrt{7}}{32}\]
+
+    接下来我们利用Hessian矩阵来验证这是极大值,我们有
+    \[H = \begin{pmatrix}
+        2c^2 - 2&4ac - 2c\\
+        4ac - 2c&2a^2 - 2a - 12c^2 + 4\\
+    \end{pmatrix} = \begin{pmatrix}
+        -\frac{1}{4}&0\\
+        0&-7\\
+    \end{pmatrix}\]
+
+    这个矩阵是负定的,这证明了我们求得的这个临界点是极大值点,故我们求得的$S$是极大值.
+\end{exercise}
+
+\begin{exercise}{25}
+    我们记$\angle BOC = \alpha,\angle AOC = \beta$,那么面积可以表示为
+    \[S = \frac{1}{2}\sin \alpha + \frac{1}{2}\sin \beta + \frac{1}{2} \sin (\pi - \alpha - \beta)\]
+
+    我们来求
+    \[2S = \sin \alpha + \sin \beta + \sin(\alpha + \beta)\]
+
+    的极值,从而利用
+    \[\frac{\partial 2S}{\partial \alpha} = \cos \alpha + \cos (\alpha + \beta) = 0\]
+    \[\frac{\partial 2S}{\partial \beta} =  \cos \beta + \cos (\alpha + \beta) = 0\]
+
+    在
+    \[\begin{cases}
+        0 < \alpha < \pi\\
+        0 < \beta < \pi\\
+        0 < \alpha + \beta < \pi\\
+    \end{cases}\]
+
+    的条件下,我们可以解出$\alpha = \beta$,进而
+    \[\cos \alpha = \frac{1}{2}\]
+    \[\alpha = \beta = \frac{\pi}{3}\]
+
+    从而
+    \[S = \frac{3\sqrt{3}}{4}\]
+
+    之后我们求出Hessian矩阵
+    \[H = \begin{pmatrix}
+        -\sin \alpha - \sin(\alpha + \beta)&-\sin(\alpha + \beta)\\
+        -\sin(\alpha + \beta)&-\sin \beta - \sin(\alpha + \beta)\\
+    \end{pmatrix} = \begin{pmatrix}
+        -\sqrt{3}&-\frac{\sqrt{3}}{2}\\
+        -\frac{\sqrt{3}}{2}&-\sqrt{3}\\
+    \end{pmatrix}\]
+
+    其奇数阶(这里就是一阶)顺序主子式小于$0$,偶数阶顺序主子式(这里就是二阶)大于$0$,故矩阵负定,从而此时取到极大值.
+\end{exercise}
+
+\begin{exercise}{26}
+
+    % \[\frac{\partial L}{\partial a} = \frac{\partial L}{\partial f} \frac{\partial f}{\partial a} = (-2y_i + 2(ax_i^2 + bx_i + c)) x_i^2\]
+    % \[\frac{\partial L}{\partial b} = \frac{\partial L}{\partial f} \frac{\partial f}{\partial b} = (-2y_i + 2(ax_i^2 + bx_i + c)) x_i\]
+    % \[\frac{\partial L}{\partial c} = \frac{\partial L}{\partial f} \frac{\partial f}{\partial c} = (-2y_i + 2(ax_i^2 + bx_i + c))\]
+
+    我们不妨设
+    \[f_1(x) = x^2,f_2(x) = x,f_3(x) = x\]
+
+    这样
+    \[\begin{aligned}
+        L(a,b,c) = \sum_{i = 1}^{n}(y_i - a f_1(x_i) - bf_2(x_i) - c f_3(x_i))^2
+    \end{aligned}\]
+
+
+    我们对于各参数求二阶偏导
+    \[\frac{\partial L}{\partial a} = - \sum_{i = 1}^{n} 2(y_i - a f_1(x_i) - bf_2(x_i) - c f_3(x_i)) f_1(x_i) = 0\]
+    \[\frac{\partial L}{\partial b} = - \sum_{i = 1}^{n} 2(y_i - a f_1(x_i) - bf_2(x_i) - c f_3(x_i)) f_2(x_i) = 0\]
+    \[\frac{\partial L}{\partial c} = - \sum_{i = 1}^{n} 2(y_i - a f_1(x_i) - bf_2(x_i) - c f_3(x_i)) f_3(x_i) = 0\]
+
+    写成矩阵的形式也就是
+    \[
+    \begin{pmatrix}
+        \sum_{i = 1}^{n} f_1^2(x_i)&\sum_{i = 1}^{n} f_1(x_i) f_2(x_i)&\sum_{i = 1}^{n} f_1(x_i) f_3(x_i)\\
+        \sum_{i = 1}^{n} f_1(x_i) f_2(x_i)&\sum_{i = 1}^{n} f_2^2(x_i)&\sum_{i = 1}^{n} f_2(x_i) f_3(x_i)\\
+        \sum_{i = 1}^{n} f_1(x_i) f_3(x_i)&\sum_{i = 1}^{n} f_2(x_i) f_3(x_i)&\sum_{i = 1}^{n} f_3^2(x_i)\\
+    \end{pmatrix}    
+    \begin{pmatrix}
+        a\\
+        b\\
+        c\\
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        \sum_{i = 1}^{n}y_i f_1(x_i)\\
+        \sum_{i = 1}^{n}y_i f_2(x_i)\\
+        \sum_{i = 1}^{n}y_i f_3(x_i)\\
+    \end{pmatrix}\]
+
+    同样我们可以得到Hessian矩阵
+    \[H = 2 \begin{pmatrix}
+        \sum_{i = 1}^{n} f_1^2(x_i)&\sum_{i = 1}^{n} f_1(x_i) f_2(x_i)&\sum_{i = 1}^{n} f_1(x_i) f_3(x_i)\\
+        \sum_{i = 1}^{n} f_1(x_i) f_2(x_i)&\sum_{i = 1}^{n} f_2^2(x_i)&\sum_{i = 1}^{n} f_2(x_i) f_3(x_i)\\
+        \sum_{i = 1}^{n} f_1(x_i) f_3(x_i)&\sum_{i = 1}^{n} f_2(x_i) f_3(x_i)&\sum_{i = 1}^{n} f_3^2(x_i)\\
+    \end{pmatrix} \]
+
+    % 由于我们这里的函数是特殊的,因此有
+    % \[
+    % \begin{aligned}
+    % \det(\frac{1}{2}H) &= \det\begin{pmatrix}
+    %     \sum_{i = 1}^{n}x_i^4&\sum_{i = 1}^{n}x_i^3&\sum_{i = 1}^{n}x_i^2\\
+    %     \sum_{i = 1}^{n}x_i^3&\sum_{i = 1}^{n}x_i^2&\sum_{i = 1}^{n}x_i^1\\
+    %     \sum_{i = 1}^{n}x_i^2&\sum_{i = 1}^{n}x_i^1&n\\
+    % \end{pmatrix}\\
+    % &= n \sum_{i = 1}^{n}x_i^4 \sum_{i = 1}^{n}x_i^2 - n \parameter{\sum_{i = 1}^{n}x_i^3}^2 + \sum_{i = 1}^{n}x_i^3 \sum_{i = 1}^{n}x_i^2 \sum_{i = 1}^{n}x_i^1 - \parameter{\sum_{i = 1}^{n}x_i^2}^3 \\
+    % &+ \sum_{i = 1}^{n}x_i^3 \sum_{i = 1}^{n}x_i^2 \sum_{i = 1}^{n}x_i^1 - \sum_{i = 1}^{n}x_i^4 \parameter{\sum_{i = 1}^{n}x_i}^2\\
+    % &\geq \sum_{i = 1}^{n}x_i^3 \sum_{i = 1}^{n}x_i^2 \sum_{i = 1}^{n}x_i^1 - \sum_{i = 1}^{n}x_i^4 \parameter{\sum_{i = 1}^{n}x_i}^2\\
+    % &= \parameter{\sum_{i = 1}^{n}x_i^3 \sum_{i = 1}^{n}x_i^2 - \sum_{i = 1}^{n}x_i^4 \sum_{i = 1}^{n}x_i}\sum_{i = 1}^{n}x_i\\
+    % &= \parameter{\sum_{1\leq i , j \leq n, i \neq j}(x_i^3 x_j^2 - x_j^4 x_i)}\sum_{i = 1}^{n}x_i\\
+    % &\geq 0
+    % \end{aligned}\]
+
+    % 第一第二项,第三第四项分别运用柯西不等式可证明最终结果$\geq 0$,由于取等当且仅当所有$x_i$都相等,这在现实问题中不存在,因此可以认为行列式大于$0$.于是我们可以解出
+    这个矩阵从多元微积分的角度很难处理,但如果我们考虑从线性代数的角度,我们定义向量
+    \[\alpha_1 = \begin{pmatrix}
+        f_1(x_1)\\
+        \vdots\\
+        f_1(x_n)\\
+    \end{pmatrix},\alpha_2 = \begin{pmatrix}
+        f_2(x_1)\\
+        \vdots\\
+        f_2(x_n)\\
+    \end{pmatrix},\alpha_3 = \begin{pmatrix}
+        f_3(x_1)\\
+        \vdots\\
+        f_3(x_n)\\
+    \end{pmatrix}\]
+
+    那么
+    \[\frac{1}{2} H = \begin{pmatrix}
+        \alpha_1^T\\
+        \alpha_2^T\\
+        \alpha_3^T\\
+    \end{pmatrix}
+    \begin{pmatrix}
+        \alpha_1&\alpha_2&\alpha_3\\
+    \end{pmatrix} = A^T A\]
+    我们利用线性代数的性质不难有对于任意的$v \in \RR^3,v \neq 0$,有
+    \[\frac{1}{2} v^T H v = v^T A^T A v = \|A v\|^2 \geq 0\]
+    
+    故$H$是半正定的,对于取等条件也就是存在$v \in \RR^3$使得$\alpha_1 v_1 + \alpha_2 v_2 + \alpha_3 v_3 = 0$,也就是$\alpha_1,\alpha_2,\alpha_3$线性相关.然而在现实问题中,我们的三个$\RR^n$中的向量共面需要满足非常严苛的条件,基本不可能发生(尤其是$n$足够大时).更为严谨地说,我们此时三个向量分别为
+    \[\begin{pmatrix}
+        1\\
+        \vdots\\
+        1\\
+    \end{pmatrix},\begin{pmatrix}
+        x_1\\
+        \vdots\\
+        x_n\\
+    \end{pmatrix},\begin{pmatrix}
+        x_1^2\\
+        \vdots\\
+        x_n^2\\
+    \end{pmatrix}\]
+    
+    而我们要让等号不成立,也就是$\n A = \{0\}$,也即$\rank A = 3$,其充分必要条件为存在$A$的一个不为零的三阶子式,形如
+    \[\det\begin{pmatrix}
+        1&x_i&x_i^2\\
+        1&x_j&x_j^2\\
+        1&x_k&x_k^2\\
+    \end{pmatrix} = (x_k - x_j)(x_j - x_i)(x_k - x_i)\]
+    
+    (这是一个范德蒙行列式),而因此只要存在三个互不相同的$x_i$,就足以保证这个矩阵$H$正定!
+    
+    因此可以认为在现实问题中,矩阵$H$是正定的,因此我们就有:
+    
+    \[\begin{pmatrix}
+        a\\
+        b\\
+        c\\
+    \end{pmatrix}
+    =\begin{pmatrix}
+        \sum_{i = 1}^{n}x_i^4&\sum_{i = 1}^{n}x_i^3&\sum_{i = 1}^{n}x_i^2\\
+        \sum_{i = 1}^{n}x_i^3&\sum_{i = 1}^{n}x_i^2&\sum_{i = 1}^{n}x_i^1\\
+        \sum_{i = 1}^{n}x_i^2&\sum_{i = 1}^{n}x_i^1&n\\
+    \end{pmatrix}^{-1}
+    \begin{pmatrix}
+        \sum_{i = 1}^{n}y_i x_i^2\\
+        \sum_{i = 1}^{n}y_i x_i\\
+        \sum_{i = 1}^{n}y_i \\
+    \end{pmatrix}
+    \]
+
+    如果一定要解出来,那么有
+     \[
+     a = \frac{\sum_{i=1}^{n} x_i^2 y_i - (\sum_{i=1}^{n} x_i^2)(\sum_{i=1}^{n} y_i)}{\sum_{i=1}^{n} x_i^4 - (\sum_{i=1}^{n} x_i^2)^2}
+     \]
+
+
+     \[
+     b = \frac{\sum_{i=1}^{n} x_i y_i - (\sum_{i=1}^{n} x_i)(\sum_{i=1}^{n} y_i)}{\sum_{i=1}^{n} x_i^2 - (\sum_{i=1}^{n} x_i)^2}
+     \]
+
+     \[
+     c = \frac{\sum_{i=1}^{n} y_i - a(\sum_{i=1}^{n} x_i^2) - b(\sum_{i=1}^{n} x_i)}{n}
+     \]
+
+     其中$c$的表达式过于复杂,我们没有代入$a,b$的解析形式
+
+    与此同时我们知道了$H$正定,从而可以在所取得$a,b,c$时取得极小值.
+\end{exercise}
+
+
+\end{CJK}
+\end{document}
+
+\begin{itemize} 
+\end{itemize}

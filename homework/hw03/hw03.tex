@@ -1,0 +1,335 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{ctex}
+
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+% 导入 xparse 宏包以支持 LaTeX3 语法
+\usepackage{xparse}
+\usepackage{pgfplots}
+% 用于插入带有坐标轴、标签和曲线的图像
+
+% \begin{tikzpicture}
+%     \begin{axis}[
+%       xlabel=$x$,
+%       ylabel=$f(x)$,
+%       axis lines=middle,
+%       xmin=-5, xmax=5,
+%       ymin=-2, ymax=8,
+%       width=\textwidth,
+%       height=8cm
+%     ]
+%     \addplot[blue,domain=-3:3] {x^2};
+%     \end{axis}
+%   \end{tikzpicture}
+\usepackage{tikz}
+% 用于绘制一般的图像
+
+% \begin{tikzpicture}[scale=0.8]
+%     \draw[->] (-4,0) -- (4,0) node[right] {$x$};
+%     \draw[->] (0,-1) -- (0,9) node[above] {$f(x)$};
+%     \draw[domain=-3:3,smooth,variable=\x,blue] plot ({\x},{\x^2});
+%   \end{tikzpicture}
+
+\newtheorem{theorem}{Theorem}[subsection]
+\newtheorem{lemma}{Lemma}[subsection]
+\newtheorem{corollary}{corollary}[subsection]
+\newtheorem{example}{Example}[subsection]
+\newtheorem{definition}{Definition}[subsection]
+% 为了证明中可以使用中文，后续定义证明时使用cproof而不是proof
+\newenvironment{cproof}{%
+{
+    \textbf{Proof\\}
+    }
+}{
+%   \hfill $\square$ 添加结束符号
+%   \par\bigskip 可选的垂直间距
+}
+\newenvironment{exercise}[1]{%
+{\textbf{Exercise #1} \\ 
+    }
+}{
+  \hfill $\square$ 
+  \par\bigskip 
+}
+
+\newenvironment{solution}{%
+{
+    \textbf{Solution\\}
+    }
+}{
+  \hfill $\square$ 
+  \par\bigskip 
+}
+
+
+% \newenvironment{identification}{%
+% \heiti{定义}\kaishu
+% }{%
+% %   \hfill $\square$ 添加结束符号
+% %   \par\bigskip 可选的垂直间距
+% }
+
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\PP}{\mathbb{P}}
+% 简化各种常见数的集合
+
+\newcommand{\parameter}[1]{\left(#1\right)}
+
+\newcommand{\bracket}[1]{\left[#1\right]}
+
+\newcommand{\abs}[1]{\left|#1\right|}
+% 各种自动变化大小的括号的简化
+
+\newcommand{\ve}{\boldsymbol}
+% 为了适应David C Lay线性代数中，简化斜体+粗体向量的书写
+
+\newcommand{\base}{\mathcal}
+
+\newcommand{\tb}{\textbf}
+
+\newcommand{\col}{\text{Col}}
+
+\newcommand{\row}{\text{Row}}
+\newcommand{\nul}{\text{Nul}}
+\newcommand{\spans}{\text{Span}}
+\newcommand{\proj}{\text{proj}}
+\newcommand{\adj}{\text{adj.}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\range}{\text{range}}
+\newcommand{\n}{\text{null}}
+\newcommand{\tr}{\text{tr}}
+\newcommand{\sign}{\text{sign}}
+\newcommand{\perm}{\text{perm}}
+% 简化粗体字体的书写
+
+\newcommand{\f}[2]{\frac}
+\newcommand{\df}[2]{\dfrac}
+
+\newcommand{\ip}[1]{\left<#1\right>}
+
+\newcommand{\pa}{\paragraph}
+\newcommand{\spa}{\subparagraph}
+\newcommand{\se}{\section}
+\newcommand{\sse}{\subsection}
+\newcommand{\ssse}{\subsubsection}
+
+% \NewDocumentCommand{\vs}{m m m}{
+%     \ve{#1}_{#2},\cdots,\ve{#1}_{#3}
+% }
+% % 快速书写一个向量组，第一个参数为向量名称，后两个为首末角标
+
+% % $\vs{b}{1}{n} $这是多参数命令的使用示例
+
+% \NewDocumentCommand{\cvs}{m m m m m}{
+%     #1_{#4}\ve{#2}_{#4} #3 \cdots #3 #1_{#5}\ve{#2}_{#5}
+% }
+% % 快速书写一个向量线性组合，第一个参数为系数，第二个参数为向量名称，第三个参数为运算符，后两个参数为角标
+
+\NewDocumentCommand{\size}{m m}{
+    #1\times#2
+}
+
+
+\title{习题三}
+\author{徐海翁}
+\date{2024.3.6}
+
+\begin{document}
+
+\begin{CJK}{UTF8}{gkai}
+
+\maketitle
+\tableofcontents
+
+\begin{exercise}{12}    \\
+
+    $p = 0$时,$I = 1,\tilde{I} = 1$\\
+
+    $p = 1$时,$I = \frac{1}{2}$, $\tilde{I} = \frac{1}{2}$\\
+
+    $p = 2$时,$I = \frac{1}{3}$, $\tilde{I} = \dfrac{65}{192}$\\
+
+    $p = 3$时,$I = \frac{1}{4}$, $\tilde{I} = \dfrac{33}{128}$\\
+
+    $p = 4$时,$I = \frac{1}{5}$, $\tilde{I} = \dfrac{31012}{147456} = \dfrac{7753}{36864}$\\
+
+    在区间$[x_{i - 1},x_i]$中,我们不妨设$c = \dfrac{x_{i - 1} + x_i}{2},\Delta x_i = x_{i} - x_{i - 1}, h = \dfrac{\Delta x_i}{2}$,并假设
+    \[\varPsi(h) = \int_{c - h}^{c + h}f(x)\, dx\]
+
+    对以上函数连续求导,不难得到
+    \[\varPsi'(h) = f(c + h) + f(c - h)\]
+    \[\varPsi''(h) = f'(c + h) - f'(c - h)\]
+    \[\varPsi''(0) = 0\]
+    \[\varPsi^{(3)}(h) = f''(c + h) + f''(c - h) \leq 2 \max_{x \in [x_{i -1},x_i]} f''(x)\]
+    我们有
+    \[I_i = \int_{x_{i - 1}}^{x_i}f(x)\, dx = \varPsi(h)\]
+    而我们近似的结果
+    \[
+    \begin{aligned}
+        \tilde{I_i} &= \dfrac{x_{i} - x_{i - 1}}{2}\bracket{f\parameter{\dfrac{x_{i - 1} + x_{i}}{2} - \sqrt{\dfrac{2}{3}} \dfrac{x_i - x_{i - 1}}{2}} + f\parameter{\dfrac{x_{i - 1} + x_{i}}{2} + \sqrt{\dfrac{2}{3}} \dfrac{x_i - x_{i - 1}}{2}}}\\
+        % &= h \bracket{f\parameter{c - \sqrt{\frac{2}{3}} h} + f\parameter{c + \sqrt{\frac{2}{3}} h}}\\
+        &= h\cdot \varPsi'(\sqrt{\dfrac{2}{3}} h)\\
+    \end{aligned}    
+    \]
+
+    而对$\varPsi(h)$在$h = 0$处展开可以得到
+    \begin{equation}
+        \varPsi(h) = \varPsi(0) + \varPsi'(0)h + \dfrac{\varPsi''(0)}{2} h^2 + \dfrac{1}{2}\int_{0}^{h}\varPsi^{(3)}(t)(h - t)^2 \, dt\\
+        \label{eq1}
+    \end{equation}
+    而对$\varPsi'\parameter{\sqrt{\dfrac{2}{3}} h}$在$h = 0$处展开可以得到
+    \begin{equation}
+        \varPsi'\parameter{\sqrt{\dfrac{2}{3}} h} = \varPsi'(0) + \varPsi''(0) \sqrt{\dfrac{2}{3}} h + \int_{0}^{\sqrt{\frac{2}{3}} h}\varPsi^{(3)}(t)(\sqrt{\frac{2}{3}}h -t)\, dt\\
+        \label{eq2}
+    \end{equation}
+
+    不难用(\ref{eq1}) $- h$ (\ref{eq2})得到
+    \[
+    \begin{aligned}
+        \abs{I_i - \tilde{I_i}} &= \abs{\varPsi(h) - h\cdot \varPsi'\parameter{\sqrt{\frac{2}{3}} h} }\\
+        &= \abs{\dfrac{1}{2}\int_{0}^{h}\varPsi^{(3)}(t)(h - t)^2 \, dt - h\int_{0}^{\sqrt{\frac{2}{3}} h}\varPsi^{(3)}(t)(\sqrt{\frac{2}{3}}h -t)\, dt} \\
+        &= \abs{\dfrac{1}{2}\int_{0}^{h}\varPsi^{(3)}(t)(h - t)^2 \, dt - \sqrt{\frac{2}{3}}h\int_{0}^{h}\varPsi^{(3)}(\sqrt{\frac{2}{3}}t)(\sqrt{\frac{2}{3}}h - \sqrt{\frac{2}{3}}t)\, dt} \\  
+        &=  \abs{\int_{0}^{h} \varPsi^{(3)}(t) (\frac{1}{2}h^2 - ht + \frac{1}{2}t^2) - \varPsi^{(3)}(\sqrt{\frac{2}{3}}t)(\frac{2}{3}h^2 - \frac{2}{3}ht)\,dt}\\
+        &\leq \abs{\int_{0}^{h} \varPsi^{(3)}(t) (\frac{1}{2}h^2 - ht + \frac{1}{2}t^2)\,dt} + \abs{\int_{0}^{h}\varPsi^{(3)}(\sqrt{\frac{2}{3}}t)(\frac{2}{3}h^2 - \frac{2}{3}ht)\,dt}\\
+        &\leq \int_{0}^{h} \max_{t\in[x_{i - 1},x_i]}\abs{\varPsi^{(3)}(t)} (\frac{7}{6}h^2 - \frac{5}{3}ht + \frac{1}{2}t^2)\, dt\\
+        &= (\dfrac{7}{6}h^2 t - \dfrac{5}{6}h t^2+ \dfrac{1}{6} t^3)|_0^h \max_{t\in[x_{i - 1},x_i]}\abs{\varPsi^{(3)}(t)}\\
+        &= \dfrac{1}{2}h^3 \max_{t\in[x_{i - 1},x_i]}\abs{\varPsi^{(3)}(t)}\\
+        &= \frac{1}{8}\Delta x_i^3 \max_{x \in [a,b]} |f''(x)|\\
+        % &\leq \dfrac{1}{2}\max_{t\in[x_{i - 1},x_i]}\abs{\varPsi^{(3)}(t)}\int_{0}^{h}(h - t)^2\,dt + \max_{t\in[x_{i - 1},x_i]}\abs{\varPsi^{(3)}(t)}\int_{0}^{\sqrt{\frac{2}{3}}h}(\sqrt{\frac{2}{3}}h - t)\,dt\\
+        % &= (\frac{1}{6}h^3 + \frac{1}{3}h^2) 2\cdot \max_{x \in [a,b]} |f''(x)|\\
+        % &= (\frac{1}{24}\Delta x_i^3 + \frac{1}{6}\Delta x_i^2) \max_{x \in [a,b]} |f''(x)|\\
+    \end{aligned}
+    \]
+    对于整个区间$[a,b]$,如果采取等距分割可以得到
+    % \[|I - \tilde{I}|\leq  (\frac{1}{24n^3} + \frac{1}{6n^2}) \max_{x \in [a,b]} |f''(x)| = O(\dfrac{1}{n^2})\]
+    \[|I - \tilde{I}|\leq  \frac{1}{8n^2}\max_{x \in [a,b]} |f''(x)| = O(\dfrac{1}{n^2})\]
+    因此可以认为这样的结果是二次收敛的
+\end{exercise}
+
+\begin{exercise}{1}
+    (1)
+    % 可知$\dfrac{1}{x^2 - 4}$的原函数为$F(x) = \dfrac{1}{4}\ln\dfrac{x - 2}{x + 2}$,利用牛顿-莱布尼茨公式
+    \[\begin{aligned}
+        \int_{0}^{+\infty}\dfrac{1}{x^2 - 4}\,dx &= \int_{0}^{2}\dfrac{1}{x^2 - 4} \,dx+ \int_{2}^{4}\dfrac{1}{x^2 - 4}\,dx + \int_{4}^{+\infty}\dfrac{1}{x^2 - 4}\,dx\\
+        &= 2\int_{2}^{4}\dfrac{1}{x^2 - 4} + + \int_{4}^{+\infty}\dfrac{1}{x^2 - 4}\,dx\\
+    \end{aligned}\]
+    根据比较判别法,右侧第一项是瑕积分,发散,这是因为
+    \[\lim_{x \to 2} \dfrac{x - 2}{x^2 - 4} = \dfrac{1}{4}\]
+    而$\int_{2}^{4}\dfrac{1}{x - 2}$是一个发散的积分
+
+    第二项收敛,故整个积分发散\\
+
+    (2)
+    \[\int_{0}^{+\infty}\dfrac{1}{x^4 - 4}\, dx =\dfrac{1}{4}\int_{0}^{+\infty}\dfrac{1}{x^2 - 2}\, dx - \dfrac{1}{4}\int_{0}^{+\infty}\dfrac{1}{x^2 + 2}\, dx\]
+
+    其中第一项发散,讨论类似于(1)小问,第二项收敛,故整个积分发散\\
+
+    (3)由于被积函数是奇函数
+    \[V.P \int_{-\infty}^{+\infty} x \sin x^2 = \lim_{A \to +\infty} \int_{-A}^{A} f(x)\, dx = \lim_{A \to +\infty} \int_{0}^{A} f(x)\, dx + \int_{0}^{A} f(-x)\, dx = 0\]
+
+    (4)被积函数的原函数是$F(x) = -\dfrac{1}{2}e^{-x^2} + C$,因此依据牛顿莱布尼茨公式可得
+    \[\int_{0}^{ + \infty} xe^{-x^2} \, dx = F(+\infty) - F(0) = 0 - \dfrac{-1}{2} = \dfrac{1}{2}\]
+
+    (5)注意到被积函数的原函数为$F(x) = \ln\abs{x + \sqrt{x^2 + 1}} + C$
+    \[\int_{0}^{+\infty} \dfrac{1}{\sqrt{x^2 + 1}}\, dx = F(+\infty) - F(0) \]
+    显然$\lim_{x\to +\infty}F(x)$这个极限不存在
+
+    (6)
+    \[\int_{2}^{+\infty} \sqrt{1 + x^2} - \sqrt{x^2 - 1}\, dx = \int_{2}^{+\infty} \dfrac{2}{\sqrt{x^2 + 1} + \sqrt{x^2 - 1}}\, dx\]
+    这时利用比较判别法
+    \[\lim_{x\to +\infty} \dfrac{2x}{\sqrt{x^2 + 1} + \sqrt{x^2 - 1}} = 1\]
+    可知这个积分发散
+\end{exercise}
+
+\begin{exercise}{2}
+    第一部分我们使用反证法:
+
+    假设$x\to +\infty$时没有这样的极限,那么由极限条件的反面,$\exists \varepsilon_0 > 0,\forall X > 0,\exists x > X$,使得
+    \[|f(x)| \geq \varepsilon_0\]
+    由$f(x)$的一致连续性,对于$\varepsilon = \frac{1}{2}\varepsilon_0 > 0$,$\exists \delta >0$,使得$\forall x',x''  \subset [0,+\infty),|x' - x''| < \delta$ 有
+    \[|f(x') - f(x'')| < \frac{1}{2}\varepsilon_0\]
+
+    从而我们对$\varepsilon_1 = \dfrac{\varepsilon_0 \delta}{2},\forall M \geq 0$,令$X = M + 1$,并且按照前面的步骤取出$x_0$,不妨设$f(x_0) > 0$,那么有$\forall x \in U(x_0,\delta)$
+    \[f(x) > f(x_0) - \frac{1}{2}\varepsilon_0 \geq \frac{1}{2}\varepsilon_0 > 0\]
+    取$a,b$分别为$x_0 - \frac{1}{2}\delta,x_0 + \frac{1}{2}\delta$,但是
+    \[\int_{x_0 - \frac{1}{2}\delta}^{x_0 + \frac{1}{2}\delta} f(x)\, dx > \frac{1}{2}\varepsilon_0\delta = \varepsilon_1\]
+    这与广义积分的柯西收敛原理矛盾,也就是这个广义积分不收敛,与题目条件矛盾\\
+
+    不能将一致连续换为连续,我们可以设计如下的函数$n \in \NN$
+    \[f(x) = \begin{cases}
+        2^n(x - n),x\in[n,n + \frac{1}{2^n})\\
+        2 - 2^n(x - n),x\in[n + \frac{1}{2^n},n + \frac{2}{2^n})\\  
+        0,otherwise\\
+    \end{cases}\]
+    不难发现这个函数不收敛,因为任意$M>0$,我们都能找到一个$x > M$,使得$f(x) = 1$.但是根据这个函数的几何图像,我们可以知道这个函数的广义积分收敛于$1$
+\end{exercise}
+
+
+\begin{exercise}{3}
+    显然在定义域范围内有$1 + x^a \geq 1$,且被积函数恒大于零
+    \[\int_{0}^{+\infty}\dfrac{dx}{(1 + x^2)(1 + x^a)}\leq \int_{0}^{+\infty}\dfrac{dx}{(1 + x^2)} = \arctan (+\infty) - \arctan 0 = \dfrac{\pi}{2}\]
+    积分单调递增而有上界,从而一定收敛.接下来我们证明这个收敛值不随$a$的变化而变化\\
+
+    进行变量代换$t = \dfrac{1}{x}$,则
+    \[\int_{0}^{+\infty}\dfrac{dx}{(1 + x^2)(1 + x^a)} =-\int_{+\infty}^{0}\dfrac{1}{t^2}\dfrac{dt}{(1 + \frac{1}{t^2})(1 + \frac{1}{t^a})} = \int_{0}^{+\infty}\dfrac{dt}{(1 + t^2)(1 + t^{-a})}\]
+    移项即有$\forall a \geq 1$
+    \[\int_{0}^{+\infty}\dfrac{(x^a -1) dx}{(1 + x^2)(1 + x^a)} = 0\]
+    对于两个不同的$a,b\in[1,+\infty)$,二者的积分式相减得到
+    \[
+    \begin{aligned}
+        \int_{0}^{+\infty}\dfrac{dx}{(1 + x^2)(1 + x^a)} - \dfrac{dx}{(1 + x^2)(1 + x^b)} &= \int_{0}^{+\infty}\dfrac{(x^b - x^a)dx}{(1 + x^2)(1 + x^a)(1 + x^b)}\\
+        &= \int_{0}^{+\infty}\dfrac{-1}{2}\dfrac{(x^a - 1)(1 + x^b) - (1 + x^a)(x^b - 1)}{(1 + x^2)(1 + x^a)(1 + x^b)}dx\\
+        &=\int_{0}^{+\infty}\dfrac{(x^a -1) dx}{(1 + x^2)(1 + x^a)} - \dfrac{(x^b -1) dx}{(1 + x^2)(1 + x^b)}\\
+        &=0\\
+    \end{aligned}    
+    \]
+    从而我们证明了这个式子的值与$a$的取值无关
+\end{exercise}
+
+
+\begin{exercise}{4}
+    (1)被积函数的原函数$F(x) = \dfrac{1}{4}\ln\dfrac{x - 2}{x + 2}$,
+    \[\int_{0}^{2}\dfrac{1}{x^2 - 4}\, dx = \lim_{x\to 2
+    ^-}F(x) - F(0)\]
+    这个极限不存在,故原瑕积分发散\\
+
+    (2)被积函数的原函数$F(x) = -\ln \cos x,x \in [0,\dfrac{\pi}{2})$
+    \[\int_{0}^{\frac{\pi}{2}}\tan x \, dx = \lim_{x\to \frac{\pi}{2}} F(x) - F(0)\]
+    这个极限不存在,原瑕积分发散\\
+
+    (3)被积函数同样是一个奇函数
+    \[
+    \begin{aligned}
+        V.P. \int_{-1}^{1} \dfrac{\sin x^2}{x}\, dx &= \lim_{\eta \to 0}\int_{-1}^{-\eta}\dfrac{\sin x^2}{x}\, dx +\int_{\eta}^{1} \dfrac{\sin x^2}{x}\, dx\\
+        &= \lim_{\eta \to 0} -\int_{-\eta}^{-1}\dfrac{\sin x^2}{x}\, dx +\int_{\eta}^{1} \dfrac{\sin x^2}{x}\, dx\\
+        &= \lim_{\eta \to 0} -\int_{\eta}^{1}\dfrac{\sin x^2}{-x}\, d(-x) +\int_{\eta}^{1} \dfrac{\sin x^2}{x}\, dx\\
+        &= \lim_{\eta \to 0} -\int_{\eta}^{1}\dfrac{\sin x^2}{x}\, dx +\int_{\eta}^{1} \dfrac{\sin x^2}{x}\, dx\\
+        &= 0\\
+    \end{aligned}    
+    \]
+
+    (4)这题有问题,考虑把$x - 3$改成$3 - x$
+    
+    进行变量代换$x = 2 + \sin t$,从而
+    \[\int_{1}^{2}\dfrac{1}{\sqrt{(x - 1)(3 - x)}}\, dx = \int_{-\frac{\pi}{2}}^{0}\dfrac{\cos t}{\cos t}\, dt = \dfrac{\pi}{2}\]
+
+    (5)做变量代换$t = \ln x$,从而
+    \[\int_{0}^{1}x^2 (\ln x)^2\, dx = \int_{-\infty}^{0} e^{3t} t^2 \, dt\]
+    此时被积函数原函数$F(t) = \parameter{\dfrac{1}{3}t^2 - \dfrac{2}{9}t + \dfrac{2}{27}}e^{3t}$,从而有
+    \[\int_{0}^{1}x^2 (\ln x)^2\, dx = F(0) - F(-\infty) = \dfrac{2}{27}\]
+\end{exercise}
+
+
+\end{CJK}
+\end{document}
+
+\begin{itemize} 
+\end{itemize}

@@ -1,0 +1,262 @@
+\documentclass[11pt,hyperref,a4paper,UTF8]{ctexart}
+\usepackage[left=2.50cm, right=2.50cm, top=2.50cm, bottom=2.50cm]{geometry}
+\usepackage[unicode=true,colorlinks,urlcolor=blue,linkcolor=blue,bookmarksnumbered=true]{hyperref}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{ctex}
+
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+% 导入 xparse 宏包以支持 LaTeX3 语法
+\usepackage{xparse}
+\usepackage{pgfplots}
+% 用于插入带有坐标轴、标签和曲线的图像
+
+% \begin{tikzpicture}
+%     \begin{axis}[
+%       xlabel=$x$,
+%       ylabel=$f(x)$,
+%       axis lines=middle,
+%       xmin=-5, xmax=5,
+%       ymin=-2, ymax=8,
+%       width=\textwidth,
+%       height=8cm
+%     ]
+%     \addplot[blue,domain=-3:3] {x^2};
+%     \end{axis}
+%   \end{tikzpicture}
+\usepackage{tikz}
+% 用于绘制一般的图像
+
+% \begin{tikzpicture}[scale=0.8]
+%     \draw[->] (-4,0) -- (4,0) node[right] {$x$};
+%     \draw[->] (0,-1) -- (0,9) node[above] {$f(x)$};
+%     \draw[domain=-3:3,smooth,variable=\x,blue] plot ({\x},{\x^2});
+%   \end{tikzpicture}
+
+\newtheorem{theorem}{Theorem}[subsection]
+\newtheorem{lemma}{Lemma}[subsection]
+\newtheorem{corollary}{corollary}[subsection]
+\newtheorem{example}{Example}[subsection]
+\newtheorem{definition}{Definition}[subsection]
+% 为了证明中可以使用中文，后续定义证明时使用cproof而不是proof
+\newenvironment{cproof}{%
+{
+    \textbf{Proof\\}
+    }
+}{
+%   \hfill $\square$ 添加结束符号
+%   \par\bigskip 可选的垂直间距
+}
+\newenvironment{exercise}[1]{%
+{\textbf{Exercise #1} \\ 
+    }
+}{
+  \hfill $\square$ 
+  \par\bigskip 
+}
+
+\newenvironment{solution}{%
+{
+    \textbf{Solution\\}
+    }
+}{
+  \hfill $\square$ 
+  \par\bigskip 
+}
+
+
+% \newenvironment{identification}{%
+% \heiti{定义}\kaishu
+% }{%
+% %   \hfill $\square$ 添加结束符号
+% %   \par\bigskip 可选的垂直间距
+% }
+
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\PP}{\mathbb{P}}
+% 简化各种常见数的集合
+
+\newcommand{\parameter}[1]{\left(#1\right)}
+
+\newcommand{\bracket}[1]{\left[#1\right]}
+
+\newcommand{\abs}[1]{\left|#1\right|}
+% 各种自动变化大小的括号的简化
+
+\newcommand{\ve}{\boldsymbol}
+% 为了适应David C Lay线性代数中，简化斜体+粗体向量的书写
+
+\newcommand{\base}{\mathcal}
+
+\newcommand{\tb}{\textbf}
+
+\newcommand{\col}{\text{Col}}
+
+\newcommand{\row}{\text{Row}}
+\newcommand{\nul}{\text{Nul}}
+\newcommand{\spans}{\text{Span}}
+\newcommand{\proj}{\text{proj}}
+\newcommand{\adj}{\text{adj.}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\range}{\text{range}}
+\newcommand{\n}{\text{null}}
+\newcommand{\tr}{\text{tr}}
+\newcommand{\sign}{\text{sign}}
+\newcommand{\perm}{\text{perm}}
+% 简化粗体字体的书写
+
+\newcommand{\f}[2]{\frac}
+\newcommand{\df}[2]{\dfrac}
+
+\newcommand{\ip}[1]{\left<#1\right>}
+
+\newcommand{\pa}{\paragraph}
+\newcommand{\spa}{\subparagraph}
+\newcommand{\se}{\section}
+\newcommand{\sse}{\subsection}
+\newcommand{\ssse}{\subsubsection}
+
+% \NewDocumentCommand{\vs}{m m m}{
+%     \ve{#1}_{#2},\cdots,\ve{#1}_{#3}
+% }
+% % 快速书写一个向量组，第一个参数为向量名称，后两个为首末角标
+
+% % $\vs{b}{1}{n} $这是多参数命令的使用示例
+
+% \NewDocumentCommand{\cvs}{m m m m m}{
+%     #1_{#4}\ve{#2}_{#4} #3 \cdots #3 #1_{#5}\ve{#2}_{#5}
+% }
+% % 快速书写一个向量线性组合，第一个参数为系数，第二个参数为向量名称，第三个参数为运算符，后两个参数为角标
+
+\NewDocumentCommand{\size}{m m}{
+    #1\times#2
+}
+
+
+\title{习题十三}
+\author{徐海翁}
+\date{2024.5.29}
+
+\begin{document}
+
+\begin{CJK}{UTF8}{gkai}
+
+\maketitle
+% \tableofcontents
+\begin{exercise}{14}
+    (1)转化为
+    \[
+        \begin{aligned}      
+            \int_{\overset{\LARGE{\frown}}{AB}} y^2 dy &+ \int_{\overset{\LARGE{\frown}}{BC}} (2x + 6) dx + \int_{\overset{\LARGE{\frown}}{CD}} (9 + y^2) dy + \int_{\overset{\LARGE{\frown}}{DA}} 2xdx\\
+            &= \int_{0}^2 y^2 dy + \int_{0}^3 (2x + 6) dx + \int_{2}^{0} (9 + y^2) dy + \int_{3}^0 2xdx\\
+            &= \frac{8}{3} + 27 - \parameter{18 + \frac{8}{3}} - 9\\
+            &= 0\\
+        \end{aligned}
+    \]
+    (2)代入螺旋线的参数表示,原积分转化为
+    \[\int_{0}^{3\pi} (4 + 2t^2)(-2\sin t) + (\sin (2\cos t) + e^{2\sin t}) dt\]
+
+    (3)作代换
+    \[\begin{cases}
+        x = a\cos \theta\\
+        y = b\sin \theta\\
+    \end{cases}\]
+
+    于是转化为
+    \[
+        \begin{aligned}
+            \int_{-\frac{\pi}{2}}^{\frac{3}{2}\pi}\frac{a \cos \theta b \cos \theta - b \sin \theta (-a\sin\theta)}{a^2 \cos^2 \theta + b^2 \sin^2\theta}\, d\theta &= ab \int_{-\frac{\pi}{2}}^{\frac{3}{2}\pi} \frac{d\theta}{a^2 \cos^2 \theta + b^2 \sin^2\theta}\\
+            &= 2ab \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \frac{d\theta}{a^2 \cos^2 \theta + b^2 \sin^2\theta}\\
+            &= 2ab \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \frac{d(\tan \theta)}{a^2 + b^2 \tan^2\theta}\\
+            &= 2ab \int_{-\infty}^{+\infty} \frac{dt}{a^2 + b^2 t^2}\\
+            &= 2 \parameter{\arctan(1 + \frac{b}{a}t)}\bigg|_{-\infty}^{+\infty}\\
+            &= 2\pi\\
+        \end{aligned}
+        \]
+
+    (4)
+    作代换
+    \[
+    \begin{cases}
+        x = t\\
+        y = t\\
+        z = t\\
+    \end{cases}\]
+    原积分化为
+    \[\int_{(0,0,0)}^{(1,1,1)} (1,2,3)\times (x,y,z) \cdot (dx,dy,dz) = \int_{0}^{1} t\bracket{(1,2,3)\times (1,1,1) \cdot (1,1,1)} dt = 0\]
+\end{exercise}
+
+\begin{exercise}{15}
+    (1)考虑参数化为
+    \[\begin{cases}
+        x = z\cos \theta\\
+        y = z\sin \theta\\
+        z = z\\
+    \end{cases}\]
+
+    则我们可将被积函数视作
+    \[P(x,y,z) = (y,0,z^2)\]
+    \[\begin{cases}
+        r_z = (\cos \theta,\sin \theta,1)\\
+        r_\theta = (-z\sin \theta,z \cos \theta,0)\\
+        r_z \times r_\theta = (-z\cos \theta,-z \sin \theta,z)\\
+    \end{cases}\]
+
+    \[
+        \begin{aligned}    
+            I &= \int_E P(x,y,z) \cdot d S\\
+            &= \int_D (z \sin \theta,0,z^2) \cdot (-z\cos \theta,-z \sin \theta,z) dz d\theta\\
+            &= \int_{0}^{2\pi} d\theta \int_{1}^{2} z^3 - z^2\sin\theta \cos \theta\\
+            &= \frac{15}{2}\pi\\
+        \end{aligned}
+        \]
+
+    (2)曲面为$x + y + z = 1$的限制,不妨取
+    \[\begin{cases}
+        x = u\\
+        y = v\\
+        z = 1 - u - v\\
+    \end{cases},u \in [0,1],v \in [0, 1 - u]\]
+
+    被积函数为
+    \[P(x,y,z) = (x,0,0)\]
+    \[
+    \begin{aligned}
+        I &= \int_S P \cdot n dS\\ 
+        &= \int_D (u,0,0) \cdot \parameter{\frac{\sqrt{3}}{3},\frac{\sqrt{3}}{3},\frac{\sqrt{3}}{3}} d(u,v)\\
+        &= \int_0^1 du \int_{0}^{1 - u} \frac{\sqrt{3}}{3}u dv\\
+        &= \frac{\sqrt{3}}{18}\\
+    \end{aligned}    
+    \]
+\end{exercise}
+
+\begin{exercise}{16}
+    利用对称性,我们只考虑第一象限的部分,我们考虑参数化
+    \[\begin{cases}
+        x = a^3 \cos^3 \theta\\
+        y = a^3 \sin^3 \theta\\
+    \end{cases}, \theta \in \bracket{0,\frac{\pi}{2}}
+    \]
+
+    不难有
+    \[\begin{cases}
+        dx = -3a^3 \cos^2 \theta \sin \theta d\theta\\
+        dy = 3a^3 \sin^2 \theta \cos \theta d\theta\\
+    \end{cases}\]
+
+    于是就有
+    \[S = 4 \int_{0}^{\frac{\pi}{2}} 3 a^6 (\cos^2 \theta + \sin^2 \theta) \sin^2 \theta \cos^2 \theta d\theta = 3a^6 \int_0^{\frac{\pi}{2}} \sin^2 2\theta d\theta = \frac{3a^6}{8}\pi\]
+\end{exercise}
+
+\end{CJK}
+\end{document}
+
+\begin{itemize} 
+\end{itemize}

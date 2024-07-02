@@ -1,0 +1,204 @@
+\contentsline {section}{\numberline {1}实数}{5}{section.1}%
+\contentsline {subsection}{\numberline {1.1}集合论知识补充}{5}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}集合的表示方法}{5}{subsubsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.2}数学分析的研究对象:函数及其性质（分析性质）}{5}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}函数的表示方法}{5}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}确界原理}{6}{subsubsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.3}可数集和不可数集}{6}{subsection.1.3}%
+\contentsline {section}{\numberline {2}极限}{8}{section.2}%
+\contentsline {subsection}{\numberline {2.1}有界序列与无穷小序列}{8}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}有界序列}{8}{subsubsection.2.1.1}%
+\contentsline {paragraph}{定义\\}{8}{paragraph*.2}%
+\contentsline {paragraph}{例子\\}{8}{paragraph*.3}%
+\contentsline {subsubsection}{\numberline {2.1.2}无穷小序列}{8}{subsubsection.2.1.2}%
+\contentsline {paragraph}{定义\\}{8}{paragraph*.4}%
+\contentsline {subsubsection}{\numberline {2.1.3}有界序列与无穷小序列的性质}{9}{subsubsection.2.1.3}%
+\contentsline {paragraph}{主要性质}{9}{paragraph*.5}%
+\contentsline {paragraph}{无穷可数个无穷小序列之和}{9}{paragraph*.6}%
+\contentsline {paragraph}{无穷可数个无穷小序列之积}{10}{paragraph*.7}%
+\contentsline {subsection}{\numberline {2.2}收敛序列}{10}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}收敛序列的定义}{10}{subsubsection.2.2.1}%
+\contentsline {paragraph}{定义\\}{10}{paragraph*.8}%
+\contentsline {subsubsection}{\numberline {2.2.2}收敛序列的性质}{11}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}收敛序列与不等式}{11}{subsubsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.3}收敛原理}{12}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}单调收敛原理}{12}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}闭区间套原理与B-W定理}{12}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}柯西收敛原理}{13}{subsubsection.2.3.3}%
+\contentsline {paragraph}{定义\\}{13}{paragraph*.9}%
+\contentsline {subsection}{\numberline {2.4}无穷大}{13}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}无穷极限}{13}{subsubsection.2.4.1}%
+\contentsline {paragraph}{定义\\}{13}{paragraph*.10}%
+\contentsline {subsubsection}{\numberline {2.4.2}扩充的实数系}{14}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}附录：Stolz定理}{14}{subsubsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.5}函数的极限}{14}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}函数极限的序列式定义}{14}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}函数极限的$\varepsilon -\delta $式定义}{15}{subsubsection.2.5.2}%
+\contentsline {paragraph}{夹逼定理\\}{15}{paragraph*.11}%
+\contentsline {paragraph}{比较原理\\}{15}{paragraph*.12}%
+\contentsline {paragraph}{推论\\}{15}{paragraph*.13}%
+\contentsline {paragraph}{柯西收敛原理\\}{15}{paragraph*.14}%
+\contentsline {subsection}{\numberline {2.6}单侧极限}{15}{subsection.2.6}%
+\contentsline {paragraph}{求$x$使$F(x)=0$的方法（迭代法）\\}{16}{paragraph*.15}%
+\contentsline {section}{\numberline {3}连续函数}{17}{section.3}%
+\contentsline {subsection}{\numberline {3.1}连续与间断}{17}{subsection.3.1}%
+\contentsline {paragraph}{连续的定义\\}{17}{paragraph*.16}%
+\contentsline {paragraph}{两类间断点\\}{17}{paragraph*.17}%
+\contentsline {paragraph}{小定理\\}{17}{paragraph*.18}%
+\contentsline {subsection}{\numberline {3.2}闭区间上连续函数的重要性质}{18}{subsection.3.2}%
+\contentsline {paragraph}{引理：闭区间的完备性\\}{18}{paragraph*.19}%
+\contentsline {subsubsection}{\numberline {3.2.1}介值定理}{18}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}最大值与最小值定理}{18}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}一致连续性}{19}{subsubsection.3.2.3}%
+\contentsline {paragraph}{定义\\}{19}{paragraph*.20}%
+\contentsline {subsection}{\numberline {3.3}单调函数，反函数}{19}{subsection.3.3}%
+\contentsline {paragraph}{反函数的定义\\}{20}{paragraph*.22}%
+\contentsline {paragraph}{一些注意点\\}{20}{paragraph*.23}%
+\contentsline {subsection}{\numberline {3.4}指数函数与对数函数，初等函数连续性问题小结}{20}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}无穷小量的比较，几个重要的极限}{20}{subsection.3.5}%
+\contentsline {paragraph}{等价无穷小(无穷大)\\}{20}{paragraph*.24}%
+\contentsline {paragraph}{同阶无穷小(无穷大)\\}{21}{paragraph*.25}%
+\contentsline {paragraph}{高阶无穷小(低阶无穷大)\\}{21}{paragraph*.26}%
+\contentsline {paragraph}{常见无穷小\\}{21}{paragraph*.27}%
+\contentsline {paragraph}{一道习题\\}{21}{paragraph*.28}%
+\contentsline {section}{\numberline {4}导数}{23}{section.4}%
+\contentsline {subsection}{\numberline {4.1}导数和微分的概念}{23}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}求导法则,高阶导数}{24}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}基本的求导法则}{24}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}一阶微分的形式不变性}{24}{subsubsection.4.2.2}%
+\contentsline {paragraph}{幂-指数形式的导数}{24}{paragraph*.29}%
+\contentsline {subsubsection}{\numberline {4.2.3}反函数的求导法则}{24}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}参数和隐函数方程的求导}{24}{subsubsection.4.2.4}%
+\contentsline {paragraph}{极坐标下极轴与切线的夹角\\}{24}{paragraph*.30}%
+\contentsline {paragraph}{隐函数求导\\}{25}{paragraph*.31}%
+\contentsline {subsubsection}{\numberline {4.2.5}高阶导数}{25}{subsubsection.4.2.5}%
+\contentsline {paragraph}{易错点}{25}{paragraph*.32}%
+\contentsline {subsection}{\numberline {4.3}无穷小增量公式和有限增量公式}{25}{subsection.4.3}%
+\contentsline {paragraph}{应用\\}{26}{paragraph*.33}%
+\contentsline {paragraph}{应用\\}{26}{paragraph*.34}%
+\contentsline {subsection}{\numberline {4.4}重要定理补充}{26}{subsection.4.4}%
+\contentsline {paragraph}{应用\\}{27}{paragraph*.35}%
+\contentsline {section}{\numberline {5}一元微积分定理的再补充}{28}{section.5}%
+\contentsline {subsection}{\numberline {5.1}微分中值定理}{28}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}洛必达法则}{29}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}泰勒公式}{30}{subsection.5.3}%
+\contentsline {paragraph}{皮亚诺余项\\}{30}{paragraph*.36}%
+\contentsline {paragraph}{拉格朗日余项}{30}{paragraph*.37}%
+\contentsline {paragraph}{一些需要记忆的拉格朗日余项展开形式}{31}{paragraph*.38}%
+\contentsline {paragraph}{泰勒级数}{31}{paragraph*.39}%
+\contentsline {subsection}{\numberline {5.4}用导数研究函数}{32}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}极值}{32}{subsubsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.2}函数的凹凸性}{33}{subsubsection.5.4.2}%
+\contentsline {subsubsection}{\numberline {5.4.3}函数凹凸性的应用}{36}{subsubsection.5.4.3}%
+\contentsline {subsubsection}{\numberline {5.4.4}拐点}{38}{subsubsection.5.4.4}%
+\contentsline {subsubsection}{\numberline {5.4.5}方程求解的牛顿迭代法}{39}{subsubsection.5.4.5}%
+\contentsline {section}{\numberline {6}不定积分}{40}{section.6}%
+\contentsline {subsection}{\numberline {6.1}原函数和不定积分的概念}{40}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}换元积分法}{41}{subsection.6.2}%
+\contentsline {paragraph}{一阶微分的形式不变性}{41}{paragraph*.40}%
+\contentsline {subsubsection}{\numberline {6.2.1}第一换元法}{41}{subsubsection.6.2.1}%
+\contentsline {paragraph}{一些三角函数的例子}{42}{paragraph*.41}%
+\contentsline {paragraph}{构造方程求解不定积分}{42}{paragraph*.42}%
+\contentsline {subsubsection}{\numberline {6.2.2}第二换元法}{43}{subsubsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.3}分部积分}{44}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}有理函数的积分}{45}{subsection.6.4}%
+\contentsline {subsubsection}{\numberline {6.4.1}简化分式的不定积分}{48}{subsubsection.6.4.1}%
+\contentsline {subsubsection}{\numberline {6.4.2}三角函数有理式}{48}{subsubsection.6.4.2}%
+\contentsline {paragraph}{万能代换}{49}{paragraph*.43}%
+\contentsline {section}{\numberline {7}定积分}{49}{section.7}%
+\contentsline {subsection}{\numberline {7.1}定义与基本性质}{49}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}定积分的性质}{50}{subsubsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.2}牛顿-莱布尼茨公式}{52}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {7.2.1}带积分余项的Taylor展开(有限增量)}{54}{subsubsection.7.2.1}%
+\contentsline {paragraph}{导出拉格朗日余项\\}{54}{paragraph*.44}%
+\contentsline {paragraph}{导出柯西余项\\}{54}{paragraph*.45}%
+\contentsline {subsection}{\numberline {7.3}定积分的几何与物理应用,微元法}{55}{subsection.7.3}%
+\contentsline {subsubsection}{\numberline {7.3.1}面积的求解}{55}{subsubsection.7.3.1}%
+\contentsline {subsubsection}{\numberline {7.3.2}体积}{55}{subsubsection.7.3.2}%
+\contentsline {subsubsection}{\numberline {7.3.3}曲线的弧长}{55}{subsubsection.7.3.3}%
+\contentsline {subsubsection}{\numberline {7.3.4}旋转体的侧面积}{57}{subsubsection.7.3.4}%
+\contentsline {subsubsection}{\numberline {7.3.5}线密度$\rightarrow $质量}{57}{subsubsection.7.3.5}%
+\contentsline {subsection}{\numberline {7.4}可积性}{57}{subsection.7.4}%
+\contentsline {paragraph}{等价形式}{60}{paragraph*.46}%
+\contentsline {subsection}{\numberline {7.5}可积函数类}{60}{subsection.7.5}%
+\contentsline {subsubsection}{\numberline {7.5.1}对黎曼积分的思考}{65}{subsubsection.7.5.1}%
+\contentsline {subsubsection}{\numberline {7.5.2}复合函数的可积性}{66}{subsubsection.7.5.2}%
+\contentsline {subsubsection}{\numberline {7.5.3}可积性总结}{67}{subsubsection.7.5.3}%
+\contentsline {subsection}{\numberline {7.6}变上限的积分}{68}{subsection.7.6}%
+\contentsline {subsubsection}{\numberline {7.6.1}变下限积分}{70}{subsubsection.7.6.1}%
+\contentsline {subsubsection}{\numberline {7.6.2}复合函数}{70}{subsubsection.7.6.2}%
+\contentsline {subsubsection}{\numberline {7.6.3}变上限积分的应用-平面上曲线的曲率和曲率半径}{71}{subsubsection.7.6.3}%
+\contentsline {subsection}{\numberline {7.7}积分不等式}{71}{subsection.7.7}%
+\contentsline {subsubsection}{\numberline {7.7.1}凹凸性与积分不等式}{75}{subsubsection.7.7.1}%
+\contentsline {subsubsection}{\numberline {7.7.2}四大连续性}{77}{subsubsection.7.7.2}%
+\contentsline {paragraph}{Lipschitz连续性}{78}{paragraph*.47}%
+\contentsline {paragraph}{$H\ddot {o}lder$连续性}{78}{paragraph*.48}%
+\contentsline {subsection}{\numberline {7.8}积分中值定理}{78}{subsection.7.8}%
+\contentsline {subsection}{\numberline {7.9}定积分的近似计算}{82}{subsection.7.9}%
+\contentsline {subsubsection}{\numberline {7.9.1}矩形公式}{82}{subsubsection.7.9.1}%
+\contentsline {subsubsection}{\numberline {7.9.2}梯形公式}{83}{subsubsection.7.9.2}%
+\contentsline {subsubsection}{\numberline {7.9.3}Simpson公式}{83}{subsubsection.7.9.3}%
+\contentsline {subsubsection}{\numberline {7.9.4}Wallis公式}{84}{subsubsection.7.9.4}%
+\contentsline {subsubsection}{\numberline {7.9.5}Strling公式}{85}{subsubsection.7.9.5}%
+\contentsline {section}{\numberline {8}广义积分}{85}{section.8}%
+\contentsline {subsection}{\numberline {8.1}广义积分的定义}{85}{subsection.8.1}%
+\contentsline {subsubsection}{\numberline {8.1.1}无穷限积分}{85}{subsubsection.8.1.1}%
+\contentsline {subsubsection}{\numberline {8.1.2}瑕积分}{85}{subsubsection.8.1.2}%
+\contentsline {section}{\numberline {9}多维空间}{90}{section.9}%
+\contentsline {subsection}{\numberline {9.1}线性空间}{90}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}距离(度量)空间 Metric Space}{91}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}空间的完备性}{94}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}$\mathbb {R}^m$空间中的函数}{95}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}有界闭集上连续函数的性质}{97}{subsection.9.5}%
+\contentsline {subsection}{\numberline {9.6}紧致性}{98}{subsection.9.6}%
+\contentsline {subsection}{\numberline {9.7}连通性}{102}{subsection.9.7}%
+\contentsline {section}{\numberline {10}多元函数的导数}{103}{section.10}%
+\contentsline {subsubsection}{\numberline {10.0.1}复合函数的微分}{107}{subsubsection.10.0.1}%
+\contentsline {subsection}{\numberline {10.1}高阶导数}{109}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}多元函数的泰勒公式}{111}{subsection.10.2}%
+\contentsline {subsubsection}{\numberline {10.2.1}多元函数的泰勒公式}{111}{subsubsection.10.2.1}%
+\contentsline {subsubsection}{\numberline {10.2.2}有限增量公式}{112}{subsubsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.3}隐函数定理}{113}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}线性映射}{117}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}多元函数的极值}{121}{subsection.10.5}%
+\contentsline {subsubsection}{\numberline {10.5.1}普通极值}{121}{subsubsection.10.5.1}%
+\contentsline {subsubsection}{\numberline {10.5.2}条件极值}{124}{subsubsection.10.5.2}%
+\contentsline {subsection}{\numberline {10.6}多元微分的几何学应用}{129}{subsection.10.6}%
+\contentsline {subsubsection}{\numberline {10.6.1}直线}{129}{subsubsection.10.6.1}%
+\contentsline {paragraph}{显示表达\\}{129}{paragraph*.50}%
+\contentsline {paragraph}{隐式表达\\}{129}{paragraph*.51}%
+\contentsline {subsubsection}{\numberline {10.6.2}曲面}{130}{subsubsection.10.6.2}%
+\contentsline {paragraph}{显示表达\\}{130}{paragraph*.52}%
+\contentsline {paragraph}{隐式表达\\}{130}{paragraph*.53}%
+\contentsline {subsubsection}{\numberline {10.6.3}Frenet标架,曲率,挠率}{130}{subsubsection.10.6.3}%
+\contentsline {subsubsection}{\numberline {10.6.4}曲率,挠率的其他表示方式}{134}{subsubsection.10.6.4}%
+\contentsline {subsubsection}{\numberline {10.6.5}曲面第一标准形式}{135}{subsubsection.10.6.5}%
+\contentsline {subsubsection}{\numberline {10.6.6}曲面第二标准形式}{135}{subsubsection.10.6.6}%
+\contentsline {section}{\numberline {11}重积分}{137}{section.11}%
+\contentsline {subsection}{\numberline {11.1}重积分转化为累次积分}{139}{subsection.11.1}%
+\contentsline {paragraph}{1.单个累次积分存在,重积分不存在}{140}{paragraph*.54}%
+\contentsline {paragraph}{2.累次积分不存在,重积分存在}{140}{paragraph*.55}%
+\contentsline {paragraph}{3.两个累次积分存在且相等,但重积分不存在}{141}{paragraph*.56}%
+\contentsline {paragraph}{4.两个累次积分存在且不相等,重积分不存在}{141}{paragraph*.57}%
+\contentsline {subsection}{\numberline {11.2}若当可测集上的积分}{142}{subsection.11.2}%
+\contentsline {paragraph}{注意:\\}{142}{paragraph*.58}%
+\contentsline {subsection}{\numberline {11.3}重积分的变量代换}{146}{subsection.11.3}%
+\contentsline {section}{\numberline {12}曲线积分}{151}{section.12}%
+\contentsline {subsection}{\numberline {12.1}第一型曲线积分}{151}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}第一型曲面积分}{153}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}第二型曲线积分}{156}{subsection.12.3}%
+\contentsline {subsection}{\numberline {12.4}第二型曲面积分}{158}{subsection.12.4}%
+\contentsline {subsection}{\numberline {12.5}各型积分的关系}{160}{subsection.12.5}%
+\contentsline {subsubsection}{\numberline {12.5.1}格林公式}{160}{subsubsection.12.5.1}%
+\contentsline {subsubsection}{\numberline {12.5.2}高斯公式}{163}{subsubsection.12.5.2}%
+\contentsline {subsubsection}{\numberline {12.5.3}斯托克斯公式}{164}{subsubsection.12.5.3}%
+\contentsline {subsection}{\numberline {12.6}微分形式简介}{166}{subsection.12.6}%
+\contentsline {subsection}{\numberline {12.7}场论入门}{168}{subsection.12.7}%
+\contentsline {subsubsection}{\numberline {12.7.1}数量场的梯度}{168}{subsubsection.12.7.1}%
+\contentsline {subsubsection}{\numberline {12.7.2}向量场的散度}{169}{subsubsection.12.7.2}%
+\contentsline {subsubsection}{\numberline {12.7.3}向量场的旋度}{169}{subsubsection.12.7.3}%
+\contentsline {subsubsection}{\numberline {12.7.4}部分场论公式的证明}{169}{subsubsection.12.7.4}%
+\contentsline {subsubsection}{\numberline {12.7.5}正交曲线坐标系}{171}{subsubsection.12.7.5}%
+\contentsline {paragraph}{梯度在正交曲线坐标系下得表示\\}{171}{paragraph*.59}%
+\contentsline {paragraph}{散度在正交曲线坐标系下的表示\\}{173}{paragraph*.60}%
+\contentsline {paragraph}{旋度在正交曲线坐标系下的表示\\}{173}{paragraph*.61}%
